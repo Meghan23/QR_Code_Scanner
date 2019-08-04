@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "995953632571",
+    "firebase_url": "https://internshalademo.firebaseio.com",
+    "project_id": "internshalademo",
+    "storage_bucket": "internshalademo.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:995953632571:android:d58c0898c586e984",
+        "android_client_info": {
+          "package_name": "com.example.internshalademo"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "995953632571-fi4chn618imugrv05m1q9mg641lu95ja.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.internshalademo",
+            "certificate_hash": "64f46adee3a8f9409909c723ebf133f5812a590b"
+          }
+        },
+        {
+          "client_id": "995953632571-gtad2k0bv4hotmrduq16ivdma07qqqi9.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBdyLajApIOQiiCjiR09bFVcGoBPslBXvg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "995953632571-gtad2k0bv4hotmrduq16ivdma07qqqi9.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
