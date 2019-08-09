@@ -70,6 +70,7 @@ public class ScannedBarcodeActivity extends AppCompatActivity {
         importBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                txtBarcodeValue.setText("");
                 startActivity(new Intent(ScannedBarcodeActivity.this, PictureBarcodeActivity.class));
             }
         });

@@ -1,5 +1,7 @@
 package com.example.internshalademo;
 
+import android.content.ClipData;
+import android.content.ClipboardManager;
 import android.support.v7.app.AppCompatActivity;
 import android.content.Context;
 import android.content.Intent;
@@ -22,7 +24,7 @@ import java.io.FileNotFoundException;
 
 public class PictureBarcodeActivity extends AppCompatActivity implements View.OnClickListener {
 
-    Button btnOpenCamera;
+    Button btnOpenCamera, copyBtn;
     TextView txtResultBody;
     ImageView QR;
     int Code = 1;
@@ -47,18 +49,39 @@ public class PictureBarcodeActivity extends AppCompatActivity implements View.On
         }
 
         detector = new BarcodeDetector.Builder(getApplicationContext())
-                .setBarcodeFormats(Barcode.DATA_MATRIX | Barcode.QR_CODE)
+                .setBarcodeFormats(Barcode.ALL_FORMATS)
                 .build();
 
         if (!detector.isOperational()) {
             txtResultBody.setText("Detector initialisation failed");
         }
+
+        copyBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                if (txtResultBody.length() > 0) {
+
+                    ClipboardManager clipboard = (ClipboardManager) getSystemService(Context.CLIPBOARD_SERVICE);
+                    ClipData clip = ClipData.newPlainText("Text", txtResultBody.getText());
+                    clipboard.setPrimaryClip(clip);
+                    Toast.makeText(getApplicationContext(), "Copied to clipboard", Toast.LENGTH_SHORT).show();
+
+                } else {
+                    Toast.makeText(getApplicationContext(), "Nothing to copy", Toast.LENGTH_SHORT).show();
+                }
+
+            }
+        });
     }
+
+
 
     private void initViews() {
         txtResultBody = findViewById(R.id.txtResultsBody);
         btnOpenCamera = findViewById(R.id.btnOpenCamera);
         btnOpenCamera.setOnClickListener(this);
+        copyBtn = findViewById(R.id.copyBtn);
         QR = findViewById(R.id.imageView);
     }
 
@@ -94,7 +117,7 @@ public class PictureBarcodeActivity extends AppCompatActivity implements View.On
                             } else {
                                 for (int index = 0; index < barcodes.size(); index++) {
                                     Barcode code = barcodes.valueAt(index);
-                                    txtResultBody.setText(txtResultBody.getText() + "\n" + code.displayValue + "\n");
+                                    txtResultBody.setText(code.displayValue);
                                 }
                             }
 
