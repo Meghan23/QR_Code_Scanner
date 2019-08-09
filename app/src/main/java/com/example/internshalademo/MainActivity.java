@@ -17,7 +17,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     }
 
     private void initViews() {
-        btnTakePicture = findViewById(R.id.btnTakePicture);
+        btnTakePicture = findViewById(R.id.btnImport);
         btnScanBarcode = findViewById(R.id.btnScanBarcode);
         btnTakePicture.setOnClickListener(this);
         btnScanBarcode.setOnClickListener(this);
@@ -27,7 +27,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     public void onClick(View v) {
 
         switch (v.getId()) {
-            case R.id.btnTakePicture:
+            case R.id.btnImport:
                 startActivity(new Intent(MainActivity.this, PictureBarcodeActivity.class));
                 break;
             case R.id.btnScanBarcode:

@@ -67,15 +67,14 @@ public class PictureBarcodeActivity extends AppCompatActivity implements View.On
 
     private void initViews() {
         txtResultBody = findViewById(R.id.txtResultsBody);
-        btnOpenCamera = findViewById(R.id.btnTakePicture);
-        txtResultBody = findViewById(R.id.txtResultsBody);
+        btnOpenCamera = findViewById(R.id.btnOpenCamera);
         btnOpenCamera.setOnClickListener(this);
     }
 
     @Override
     public void onClick(View v) {
 
-        if (v.getId() == R.id.btnTakePicture) {
+        if (v.getId() == R.id.btnOpenCamera) {
 
             ActivityCompat.requestPermissions(PictureBarcodeActivity.this, new
                     String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE, Manifest.permission.CAMERA}, REQUEST_CAMERA_PERMISSION);
