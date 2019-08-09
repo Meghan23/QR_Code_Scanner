@@ -31,14 +31,13 @@
                 android:resource="@xml/provider_paths" />
         </provider>
 
-        <activity android:name=".ScannedBarcodeActivity" />
         <activity android:name=".PictureBarcodeActivity" />
 
         <meta-data
             android:name="com.google.firebase.ml.vision.DEPENDENCIES"
             android:value="barcode" />
 
-        <activity android:name=".MainActivity">
+        <activity android:name=".ScannedBarcodeActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

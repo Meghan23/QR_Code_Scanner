@@ -1,6 +1,7 @@
 <resources>
     <string name="app_name">Internship</string>
-    <string name="take_barcode_picture">Import</string>
+    <string name="import_picture">Import</string>
     <string name="scan_barcode">Scan</string>
-    <string name="open_camera">Capture</string>
+    <string name="open_camera">Open Image</string>
+    <string name="copy">Copy</string>
 </resources>

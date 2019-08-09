@@ -3,6 +3,7 @@ package com.example.internshalademo;
 import android.Manifest;
 import android.content.ClipData;
 import android.content.Context;
+import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.support.v4.app.ActivityCompat;
@@ -30,7 +31,7 @@ public class ScannedBarcodeActivity extends AppCompatActivity {
     private BarcodeDetector barcodeDetector;
     private CameraSource cameraSource;
     private static final int REQUEST_CAMERA_PERMISSION = 201;
-    Button btnAction;
+    Button btnAction, importBtn;
     String intentData = "";
 
     @Override
@@ -45,13 +46,14 @@ public class ScannedBarcodeActivity extends AppCompatActivity {
         txtBarcodeValue = findViewById(R.id.txtBarcodeValue);
         surfaceView = findViewById(R.id.surfaceView);
         btnAction = findViewById(R.id.btnAction);
+        importBtn = findViewById(R.id.importBtn);
 
 
         btnAction.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
-                if (txtBarcodeValue.length() > 0) {
+                if (intentData.length() > 0) {
 
                     ClipboardManager clipboard = (ClipboardManager) getSystemService(Context.CLIPBOARD_SERVICE);
                     ClipData clip = ClipData.newPlainText("Text", txtBarcodeValue.getText());
@@ -64,6 +66,14 @@ public class ScannedBarcodeActivity extends AppCompatActivity {
 
             }
         });
+
+        importBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(ScannedBarcodeActivity.this, PictureBarcodeActivity.class));
+            }
+        });
+
     }
 
     private void initialiseDetectorsAndSources() {
